@@ -1,0 +1,59 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_user_table
+      author: nastinka_krd
+      changes:
+        - createTable:
+            schemaName: notification
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: user_pk
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_sending_notification_allowed
+                  type: boolean
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: create_notification_table
+      author: nastinka_krd
+      changes:
+        - createTable:
+            schemaName: notification
+            tableName: notification
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: notification_pk
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: planning_date_and_time
+                  type: datetime
+                  constraints:
+                    nullable: false
+
