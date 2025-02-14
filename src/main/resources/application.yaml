@@ -1,12 +1,28 @@
 server:
   port: 8081
 spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-group
+      auto-offset-reset: earliest
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   jpa:
     hibernate.ddl-auto: validate
   datasource:
-    url: ${URL}
-    username: ${USERNAME}
-    password: ${PASSWORD}
+    url: ${URL:jdbc:postgresql://localhost:5432/db_notification_management}
+    username: ${DB_USERNAME:postgres}
+    password: ${PASSWORD:postgres}
   liquibase:
     change-log: classpath:/db/changelog/2025_01_08_init_db.yaml
     enabled: true

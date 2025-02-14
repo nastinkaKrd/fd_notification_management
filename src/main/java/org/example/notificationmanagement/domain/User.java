@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(schema = "notification", name = "user")
+@Table(name = "user")
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
