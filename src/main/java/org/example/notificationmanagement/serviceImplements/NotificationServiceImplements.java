@@ -26,7 +26,8 @@ public class NotificationServiceImplements implements NotificationService {
         try {
             emailNotification confirmationEmailNotification = objectMapper.readValue(message, emailNotification.class);
             String subject = "Confirmation of registration";
-            String text = "Follow this link to confirm your registration: http://localhost:8082/auth/email-confirm/" + confirmationEmailNotification.getSecretKey();
+            String text = "Follow this link to confirm your registration: http://localhost:8082/auth/email-confirm/" +
+                    confirmationEmailNotification.getEmail() + "?secret-key=" + confirmationEmailNotification.getSecretKey();
             System.out.println(sendVerificationMessageOnEmail(confirmationEmailNotification.getEmail(), subject, text));
         } catch (Exception e) {
             System.out.println(e.getMessage());
