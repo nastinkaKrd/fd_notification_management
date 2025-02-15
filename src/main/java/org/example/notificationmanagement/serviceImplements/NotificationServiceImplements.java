@@ -1,7 +1,7 @@
 package org.example.notificationmanagement.serviceImplements;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.notificationmanagement.dto.emailNotification;
+import org.example.notificationmanagement.dto.EmailNotification;
 import org.example.notificationmanagement.service.NotificationService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -24,8 +24,8 @@ public class NotificationServiceImplements implements NotificationService {
     @KafkaListener(topics = "email-confirmation", groupId = "notification-group")
     public void listenRegisterEvent(String message) {
         try {
-            emailNotification confirmationEmailNotification = objectMapper.readValue(message, emailNotification.class);
-            String subject = "Confirmation of registration";
+            EmailNotification confirmationEmailNotification = objectMapper.readValue(message, EmailNotification.class);
+            String subject = "Email confirmation";
             String text = "Follow this link to confirm your registration: http://localhost:8082/auth/email-confirm/" +
                     confirmationEmailNotification.getEmail() + "?secret-key=" + confirmationEmailNotification.getSecretKey();
             System.out.println(sendVerificationMessageOnEmail(confirmationEmailNotification.getEmail(), subject, text));
@@ -37,7 +37,7 @@ public class NotificationServiceImplements implements NotificationService {
     @KafkaListener(topics = "reset-password", groupId = "notification-group")
     public void listenResetPasswordEvent(String message) {
         try {
-            emailNotification confirmationEmailNotification = objectMapper.readValue(message, emailNotification.class);
+            EmailNotification confirmationEmailNotification = objectMapper.readValue(message, EmailNotification.class);
             String subject = "Confirmation of changing password";
             String text = "Your verification secret key for changing password: "
                     + confirmationEmailNotification.getSecretKey()

@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class emailNotification {
+public class EmailNotification {
     private String email;
     private String secretKey;
 }
