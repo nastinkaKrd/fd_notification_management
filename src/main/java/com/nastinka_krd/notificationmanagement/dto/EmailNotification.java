@@ -1,4 +1,4 @@
-package org.example.notificationmanagement.dto;
+package com.nastinka_krd.notificationmanagement.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

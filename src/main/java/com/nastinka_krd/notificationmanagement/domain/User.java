@@ -1,13 +1,15 @@
-package org.example.notificationmanagement.domain;
+package com.nastinka_krd.notificationmanagement.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "user")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 public class User {
     @Id
     @Column(name = "id")
