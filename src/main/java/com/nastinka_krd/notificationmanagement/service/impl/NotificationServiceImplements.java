@@ -1,7 +1,6 @@
 package com.nastinka_krd.notificationmanagement.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nastinka_krd.notificationmanagement.dto.EmailNotification;
 import com.nastinka_krd.notificationmanagement.dto.NotificationDto;
 import com.nastinka_krd.notificationmanagement.mapper.NotificationMapper;
 import com.nastinka_krd.notificationmanagement.repository.NotificationRepository;
@@ -12,6 +11,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import com.nastinka_krd.user_management.api.dto.EmailNotification;
 
 import java.util.List;
 
