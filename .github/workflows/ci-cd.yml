@@ -23,6 +23,7 @@ jobs:
         run: mvn clean package -DskipTests
 
       - name: Build Docker image
+        working-directory: ${{ github.workspace }}
         run: docker build -t nastinkaKrd/fd-notification-management:latest -f Dockerfile .
 
       - name: Log in to Docker Hub
