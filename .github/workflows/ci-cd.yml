@@ -23,7 +23,7 @@ jobs:
         run: mvn clean package -DskipTests
 
       - name: Build Docker image
-        run: docker build -t nastinkaKrd/fd-notification-management:latest -f Dockerfile .
+        run: docker build -t nastinka352@gmail.com/fd-notification-management:latest -f Dockerfile .
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -32,4 +32,4 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
 
       - name: Push Docker image
-        run: docker push nastinkaKrd/fd-notification-management:latest
+        run: docker push nastinka352@gmail.com/fd-notification-management:latest
