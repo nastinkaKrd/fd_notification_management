@@ -23,7 +23,7 @@ jobs:
         run: mvn clean package -DskipTests
 
       - name: Build Docker image
-        run: docker build -t nastinkaKrd/fd-notification-management:latest .
+        run: docker build -t nastinkaKrd/fd-notification-management:latest -f Dockerfile .
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
