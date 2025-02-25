@@ -1,10 +1,10 @@
-package com.nastinka_krd.notificationmanagement.service.impl;
+package com.nastinka_krd.fooddelivery.notifications.service.impl;
 
-import com.nastinka_krd.notificationmanagement.domain.Notification;
-import com.nastinka_krd.notificationmanagement.domain.User;
-import com.nastinka_krd.notificationmanagement.repository.NotificationRepository;
-import com.nastinka_krd.notificationmanagement.repository.UserRepository;
-import com.nastinka_krd.notificationmanagement.service.NotificationService;
+import com.nastinka_krd.fooddelivery.notifications.domain.User;
+import com.nastinka_krd.fooddelivery.notifications.repository.NotificationRepository;
+import com.nastinka_krd.fooddelivery.notifications.repository.UserRepository;
+import com.nastinka_krd.fooddelivery.notifications.service.NotificationService;
+import com.nastinka_krd.fooddelivery.notifications.domain.Notification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;

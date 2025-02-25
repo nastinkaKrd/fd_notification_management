@@ -20,9 +20,9 @@ spring:
   jpa:
     hibernate.ddl-auto: validate
   datasource:
-    url: ${URL:jdbc:postgresql://localhost:5432/db_notification_management}
-    username: ${DB_USERNAME:postgres}
-    password: ${PASSWORD:postgres}
+    url: ${FD_DB_URL:jdbc:postgresql://localhost:5432/db_notification_management}
+    username: ${FD_DB_USERNAME:postgres}
+    password: ${FD_DB_PASSWORD:postgres}
   liquibase:
     change-log: classpath:/db/changelog/2025_01_08_init_db.yaml
     enabled: true

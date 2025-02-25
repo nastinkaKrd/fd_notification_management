@@ -1,4 +1,4 @@
-package com.nastinka_krd.notificationmanagement.domain;
+package com.nastinka_krd.fooddelivery.notifications.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

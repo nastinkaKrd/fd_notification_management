@@ -1,10 +1,10 @@
-package com.nastinka_krd.notificationmanagement.service.impl;
+package com.nastinka_krd.fooddelivery.notifications.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nastinka_krd.notificationmanagement.dto.NotificationDto;
-import com.nastinka_krd.notificationmanagement.mapper.NotificationMapper;
-import com.nastinka_krd.notificationmanagement.repository.NotificationRepository;
-import com.nastinka_krd.notificationmanagement.service.NotificationService;
+import com.nastinka_krd.fooddelivery.notifications.mapper.NotificationMapper;
+import com.nastinka_krd.fooddelivery.notifications.service.NotificationService;
+import com.nastinka_krd.fooddelivery.notifications.dto.NotificationDto;
+import com.nastinka_krd.fooddelivery.notifications.repository.NotificationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -30,6 +30,7 @@ public class NotificationServiceImplements implements NotificationService {
     @KafkaListener(topics = "email-confirmation", groupId = "notification-group")
     public void listenRegisterEvent(String message) {
         try {
+            System.out.println(message);
             EmailNotification confirmationEmailNotification = objectMapper.readValue(message, EmailNotification.class);
             String subject = "Email confirmation";
             String text = "Follow this link to confirm your registration: http://localhost:8082/auth/email-confirm/" +

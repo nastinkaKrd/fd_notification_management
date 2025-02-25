@@ -1,10 +1,10 @@
-package com.nastinka_krd.notificationmanagement.service.impl;
+package com.nastinka_krd.fooddelivery.notifications.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nastinka_krd.notificationmanagement.dto.UserDto;
-import com.nastinka_krd.notificationmanagement.mapper.UserMapper;
-import com.nastinka_krd.notificationmanagement.repository.UserRepository;
-import com.nastinka_krd.notificationmanagement.service.UserService;
+import com.nastinka_krd.fooddelivery.notifications.mapper.UserMapper;
+import com.nastinka_krd.fooddelivery.notifications.repository.UserRepository;
+import com.nastinka_krd.fooddelivery.notifications.service.UserService;
+import com.nastinka_krd.fooddelivery.notifications.dto.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.nastinka_krd.notificationmanagement;
+package com.nastinka_krd.fooddelivery.notifications;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,6 @@
-package com.nastinka_krd.notificationmanagement.service;
+package com.nastinka_krd.fooddelivery.notifications.service;
 
-import com.nastinka_krd.notificationmanagement.dto.NotificationDto;
+import com.nastinka_krd.fooddelivery.notifications.dto.NotificationDto;
 
 import java.util.List;
 
