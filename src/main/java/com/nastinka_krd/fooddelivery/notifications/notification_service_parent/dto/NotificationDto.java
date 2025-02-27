@@ -1,4 +1,4 @@
-package com.nastinka_krd.fooddelivery.notifications.dto;
+package com.nastinka_krd.fooddelivery.notifications.notification_service_parent.dto;
 
 import lombok.Data;
 

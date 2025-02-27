@@ -1,7 +1,7 @@
-package com.nastinka_krd.fooddelivery.notifications.controller;
+package com.nastinka_krd.fooddelivery.notifications.notification_service_parent.controller;
 
-import com.nastinka_krd.fooddelivery.notifications.service.NotificationService;
-import com.nastinka_krd.fooddelivery.notifications.dto.NotificationDto;
+import com.nastinka_krd.fooddelivery.notifications.notification_service_parent.service.NotificationService;
+import com.nastinka_krd.fooddelivery.notifications.notification_service_parent.dto.NotificationDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,15 +1,10 @@
 server:
   port: 8081
 spring:
-  kafka:
-    bootstrap-servers: localhost:9092
-    consumer:
-      group-id: notification-group
-      auto-offset-reset: earliest
   mail:
     host: ${MAIL_HOST:smtp.gmail.com}
     port: ${MAIL_PORT:587}
-    username: ${MAIL_USERNAME}
+    username: ${MAIL_USERNAME:}
     password: ${MAIL_PASSWORD}
     properties:
       mail:

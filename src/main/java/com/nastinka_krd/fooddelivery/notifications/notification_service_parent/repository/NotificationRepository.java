@@ -1,6 +1,6 @@
-package com.nastinka_krd.fooddelivery.notifications.repository;
+package com.nastinka_krd.fooddelivery.notifications.notification_service_parent.repository;
 
-import com.nastinka_krd.fooddelivery.notifications.domain.Notification;
+import com.nastinka_krd.fooddelivery.notifications.notification_service_parent.domain.Notification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

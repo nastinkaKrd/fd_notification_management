@@ -1,4 +1,4 @@
-package com.nastinka_krd.fooddelivery.notifications;
+package com.nastinka_krd.fooddelivery.notifications.notification_service_parent;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

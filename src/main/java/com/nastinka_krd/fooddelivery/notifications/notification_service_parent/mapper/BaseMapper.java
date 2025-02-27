@@ -1,4 +1,4 @@
-package com.nastinka_krd.fooddelivery.notifications.mapper;
+package com.nastinka_krd.fooddelivery.notifications.notification_service_parent.mapper;
 
 import java.util.List;
 

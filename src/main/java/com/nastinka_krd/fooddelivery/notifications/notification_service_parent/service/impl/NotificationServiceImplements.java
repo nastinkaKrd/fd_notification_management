@@ -1,24 +1,22 @@
-package com.nastinka_krd.fooddelivery.notifications.service.impl;
+package com.nastinka_krd.fooddelivery.notifications.notification_service_parent.service.impl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nastinka_krd.fooddelivery.notifications.mapper.NotificationMapper;
-import com.nastinka_krd.fooddelivery.notifications.service.NotificationService;
-import com.nastinka_krd.fooddelivery.notifications.dto.NotificationDto;
-import com.nastinka_krd.fooddelivery.notifications.repository.NotificationRepository;
+import com.nastinka_krd.fooddelivery.notifications.notification_service_parent.dto.NotificationDto;
+import com.nastinka_krd.fooddelivery.notifications.notification_service_parent.mapper.NotificationMapper;
+import com.nastinka_krd.fooddelivery.notifications.notification_service_parent.repository.NotificationRepository;
+import com.nastinka_krd.fooddelivery.notifications.notification_service_parent.service.NotificationService;
+import com.nastinka_krd.user_management.api.dto.EmailNotification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-import com.nastinka_krd.user_management.api.dto.EmailNotification;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class NotificationServiceImplements implements NotificationService {
-    private final ObjectMapper objectMapper;
     private final JavaMailSender javaMailSender;
     @Value("${spring.mail.username}")
     private String sendingUserEmail;
@@ -27,29 +25,28 @@ public class NotificationServiceImplements implements NotificationService {
 
 
 
-    @KafkaListener(topics = "email-confirmation", groupId = "notification-group")
-    public void listenRegisterEvent(String message) {
+    @KafkaListener(topics = "email-confirmation", groupId = "notification-group",
+            containerFactory = "emailNotificationKafkaListenerContainerFactory")
+    public void listenRegisterEvent(EmailNotification emailNotification) {
         try {
-            System.out.println(message);
-            EmailNotification confirmationEmailNotification = objectMapper.readValue(message, EmailNotification.class);
+            System.out.println("hi " + emailNotification);
             String subject = "Email confirmation";
-            String text = "Follow this link to confirm your registration: http://localhost:8082/auth/email-confirm/" +
-                    confirmationEmailNotification.getEmail() + "?secret-key=" + confirmationEmailNotification.getSecretKey();
-            System.out.println(sendMessageOnEmail(confirmationEmailNotification.getEmail(), subject, text));
+            //String text = "Follow this link to confirm your registration: http://localhost:8082/auth/email-confirm/" +
+            //        emailNotification.getEmail() + "?secret-key=" + emailNotification.getSecretKey();
+            //System.out.println(sendMessageOnEmail(emailNotification.getEmail(), subject, text));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
     @KafkaListener(topics = "reset-password", groupId = "notification-group")
-    public void listenResetPasswordEvent(String message) {
+    public void listenResetPasswordEvent(EmailNotification emailNotification) {
         try {
-            EmailNotification confirmationEmailNotification = objectMapper.readValue(message, EmailNotification.class);
             String subject = "Confirmation of changing password";
             String text = "Your verification secret key for changing password: "
-                    + confirmationEmailNotification.getSecretKey()
+                    + emailNotification.getSecretKey()
                     + " Follow this link to change password: http://localhost:8082/auth/change-password";
-            System.out.println(sendMessageOnEmail(confirmationEmailNotification.getEmail(), subject, text));
+            System.out.println(sendMessageOnEmail(emailNotification.getEmail(), subject, text));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

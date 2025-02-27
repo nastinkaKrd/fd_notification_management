@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.nastinka_krd.fooddelivery.notifications</groupId>
-    <artifactId>notification-service-parent</artifactId>
+    <artifactId>notification_service_parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>notification-service-parent</name>
-    <description>notification-service-parent</description>
+    <name>notification_service_parent</name>
+    <description>notification_service_parent</description>
     <url/>
     <licenses>
         <license/>
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>com.nastinka_krd.user_management</groupId>
             <artifactId>api</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
+            <version>0.0.4-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
