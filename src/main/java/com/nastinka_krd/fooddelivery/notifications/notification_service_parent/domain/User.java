@@ -1,13 +1,15 @@
-package org.example.notificationmanagement.domain;
+package com.nastinka_krd.fooddelivery.notifications.notification_service_parent.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Table(schema = "notification", name = "user")
+@Table(name = "user")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
+@Builder
 public class User {
     @Id
     @Column(name = "id")
