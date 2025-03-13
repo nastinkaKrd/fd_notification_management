@@ -1,0 +1,1 @@
+[![Coverage Status](https://coveralls.io/repos/github/nastinkaKrd/fd_notification_management/badge.svg?branch=master)](https://coveralls.io/github/nastinkaKrd/fd_notification_management?branch=master)
