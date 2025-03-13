@@ -2,14 +2,17 @@ package org.example.notificationmanagement.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
-@Table(schema = "notification", name = "notification")
+@Table(name = "notification")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 public class Notification {
     @Id
     @Column(name = "id")
@@ -22,6 +25,6 @@ public class Notification {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "planning_date_and_time")
-    private LocalDateTime planningDateAndTime;
+    @Column(name = "planning_date")
+    private Date planningDate;
 }

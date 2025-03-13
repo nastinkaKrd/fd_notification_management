@@ -4,7 +4,6 @@ databaseChangeLog:
       author: nastinka_krd
       changes:
         - createTable:
-            schemaName: notification
             tableName: user
             columns:
               - column:
@@ -30,7 +29,6 @@ databaseChangeLog:
       author: nastinka_krd
       changes:
         - createTable:
-            schemaName: notification
             tableName: notification
             columns:
               - column:
@@ -56,4 +54,12 @@ databaseChangeLog:
                   type: datetime
                   constraints:
                     nullable: false
-
+  - changeSet:
+      id: renameColumnAndChangeDatatype
+      author: nastinka_krd
+      changes:
+        - renameColumn:
+            tableName: notification
+            oldColumnName: planning_date_and_time
+            newColumnName: planning_date
+            columnDataType: date
