@@ -10,3 +10,4 @@ cat <<EOF | tee $HOME/.m2/settings.xml
   </servers>
 </settings>
 EOF
+cat $HOME/.m2/settings.xml
