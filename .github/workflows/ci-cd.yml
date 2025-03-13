@@ -25,16 +25,10 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Deploy using Environment Variables
-        run: |
-          mvn deploy \
-            -DrepositoryId=github \
-            -Durl=https://maven.pkg.github.com/YOUR_USERNAME/YOUR_REPOSITORY \
-            -Dusername=$GITHUB_USERNAME \
-            -Dpassword=$GH_PACKAGES_TOKEN
-
       - name: Run tests with JaCoCo
-        run: mvn clean test jacoco:report
+        run: mvn clean test jacoco:report \
+          -Dusername=$GITHUB_USERNAME \
+          -Dpassword=$GH_PACKAGES_TOKEN
 
       - name: Upload to Coveralls
         run: mvn coveralls:report -DrepoToken=${{ secrets.COVERALLS_REPO_TOKEN }}
