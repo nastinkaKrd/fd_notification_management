@@ -5,11 +5,15 @@ on:
     branches:
       - '*'
 
+env:
+    GITHUB_USERNAME: ${{ github.actor }}
+    GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
+
+
 
     steps:
       - name: Checkout code
@@ -20,6 +24,14 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+
+      - name: Deploy using Environment Variables
+        run: |
+          mvn deploy \
+            -DrepositoryId=github \
+            -Durl=https://maven.pkg.github.com/YOUR_USERNAME/YOUR_REPOSITORY \
+            -Dusername=$GITHUB_USERNAME \
+            -Dpassword=$GH_PACKAGES_TOKEN
 
       - name: Run tests with JaCoCo
         run: mvn clean test jacoco:report
