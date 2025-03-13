@@ -29,9 +29,7 @@ jobs:
           java-version: '17'
 
       - name: Run tests with JaCoCo
-        run: mvn clean test jacoco:report \
-          -Dusername=$GITHUB_USERNAME \
-          -Dpassword=$GH_PACKAGES_TOKEN
+        run: mvn clean test jacoco:report
 
       - name: Upload to Coveralls
         run: mvn coveralls:report -DrepoToken=${{ secrets.COVERALLS_REPO_TOKEN }}
