@@ -159,7 +159,7 @@
     <repositories>
         <repository>
             <id>github</id>
-            <url>https://${env.GITHUB_USERNAME}:${env.GH_PACKAGES_TOKEN}@maven.pkg.github.com/nastinkaKrd/fd_user_management</url>
+            <url>https://${env.GITHUB_USERNAME}:${env.GITHUB_TOKEN}@maven.pkg.github.com/nastinkaKrd/fd_user_management</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
