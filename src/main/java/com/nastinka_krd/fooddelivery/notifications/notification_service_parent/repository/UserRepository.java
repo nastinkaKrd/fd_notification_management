@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
@@ -17,4 +18,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Modifying
     @Query("UPDATE User e SET e.isSendingNotificationAllowed = CASE WHEN e.isSendingNotificationAllowed = true THEN false ELSE true END WHERE e.email = :userEmail")
     void updateIsSendingNotificationAllowedColumn(@Param("userEmail") String userEmail);
+
+    Optional<User> findByUsername(String username);
 }

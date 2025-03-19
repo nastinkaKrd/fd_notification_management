@@ -31,9 +31,9 @@ public class NotificationServiceImplements implements NotificationService {
         try {
             System.out.println("hi " + emailNotification);
             String subject = "Email confirmation";
-            //String text = "Follow this link to confirm your registration: http://localhost:8082/auth/email-confirm/" +
-            //        emailNotification.getEmail() + "?secret-key=" + emailNotification.getSecretKey();
-            //System.out.println(sendMessageOnEmail(emailNotification.getEmail(), subject, text));
+            String text = "Follow this link to confirm your registration: http://localhost:8082/auth/email-confirm/" +
+                    emailNotification.getEmail() + "?secret-key=" + emailNotification.getSecretKey();
+            System.out.println(sendMessageOnEmail(emailNotification.getEmail(), subject, text));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

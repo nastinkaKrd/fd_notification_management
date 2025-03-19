@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "fd_user")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -13,11 +13,20 @@ import lombok.*;
 public class User {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private UserRoles role;
 
     @Column(name = "is_sending_notification_allowed")
     private Boolean isSendingNotificationAllowed;

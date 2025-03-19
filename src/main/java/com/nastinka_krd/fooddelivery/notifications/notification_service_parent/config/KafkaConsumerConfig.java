@@ -1,7 +1,7 @@
 package com.nastinka_krd.fooddelivery.notifications.notification_service_parent.config;
 
 import com.nastinka_krd.user_management.api.dto.EmailNotification;
-import com.nastinka_krd.user_management.api.dto.UserDataForNotifications;
+import com.nastinka_krd.user_management.api.dto.UserData;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,13 +49,13 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public ConsumerFactory<String, UserDataForNotifications> userDataConsumerFactory() {
-        return createConsumerFactory(UserDataForNotifications.class);
+    public ConsumerFactory<String, UserData> userDataConsumerFactory() {
+        return createConsumerFactory(UserData.class);
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, UserDataForNotifications> userDataKafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, UserDataForNotifications> factory =
+    public ConcurrentKafkaListenerContainerFactory<String, UserData> userDataKafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, UserData> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(userDataConsumerFactory());
         return factory;
