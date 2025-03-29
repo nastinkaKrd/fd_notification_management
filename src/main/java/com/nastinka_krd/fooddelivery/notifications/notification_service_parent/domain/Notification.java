@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -12,6 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 public class Notification {
     @Id
     @Column(name = "id")
@@ -25,5 +28,5 @@ public class Notification {
     private String description;
 
     @Column(name = "planning_date")
-    private Date planningDate;
+    private LocalDate planningDate;
 }

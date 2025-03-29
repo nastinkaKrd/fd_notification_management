@@ -78,3 +78,12 @@ databaseChangeLog:
             newColumnName: planning_date
             columnDataType: date
 
+  - changeSet:
+      id: change-planning-date-type
+      author: nastinka_krd
+      changes:
+        - modifyDataType:
+            tableName: notification
+            columnName: planning_date
+            newDataType: DATE
+

@@ -21,10 +21,10 @@ public class SendingNotificationSchedulerImplements {
     private final NotificationService notificationService;
     private final UserRepository userRepository;
 
-    @Scheduled(cron = "0 0 8 * * ?")
+    @Scheduled(cron = "0 0 15 * * ?")
     public void sendNotification() {
         LocalDate localDate = LocalDate.now();
-        List<Notification> notifications = notificationRepository.findAllByPlanningDate(Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        List<Notification> notifications = notificationRepository.findAllByPlanningDate(localDate);
         if (!notifications.isEmpty()){
             List<User> users = userRepository.findAllByIsSendingNotificationAllowed(true);
             notifications.forEach(notification -> {
