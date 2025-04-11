@@ -39,13 +39,12 @@ public class NotificationServiceImplements implements NotificationService {
         }
     }
 
-    @KafkaListener(topics = "reset-password", groupId = "notification-group")
+    @KafkaListener(topics = "reset-password", groupId = "notification-group",
+            containerFactory = "emailNotificationKafkaListenerContainerFactory")
     public void listenResetPasswordEvent(EmailNotification emailNotification) {
         try {
             String subject = "Confirmation of changing password";
-            String text = "Your verification secret key for changing password: "
-                    + emailNotification.getSecretKey()
-                    + " Follow this link to change password: http://localhost:4200/auth/change-password";
+            String text = "Follow this link to change password: http://localhost:4200/api/auth/change-password?secret-key=" + emailNotification.getSecretKey();
             System.out.println(sendMessageOnEmail(emailNotification.getEmail(), subject, text));
         } catch (Exception e) {
             System.out.println(e.getMessage());
